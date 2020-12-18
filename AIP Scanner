@@ -1,0 +1,16 @@
+#Install AIPScanner
+#If Powershell does not connect, issue 
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+$cred = Get-Credential "domain\admin"
+
+Set-AIPAuthentication -AppID "" -AppSecret "" -TenantID "" -DelegatedUser admin@tenant.com -OnBehalfOf $cred
+
+Start-AIPScan
+
+Get-AIPScannerStatus
+
+#Create App registration
+#Create secret
+#API Permissions
