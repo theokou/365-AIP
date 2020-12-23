@@ -5,6 +5,7 @@
 
 $cred = Get-Credential "domain\admin"
 
+Install-AIPScanner -SqlServerInstance localhost\SQLEXPRESS -Cluster "cluster name" -ServiceUserCredentials $cred
 Set-AIPAuthentication -AppID "" -AppSecret "" -TenantID "" -DelegatedUser admin@tenant.com -OnBehalfOf $cred
 
 Start-AIPScan
